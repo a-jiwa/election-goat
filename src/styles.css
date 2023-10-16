@@ -1,0 +1,167 @@
+body {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    overflow-x: hidden;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 10vw 80vw 10vw;
+    grid-template-rows: 50px 250px auto auto 100px;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    "header header header"
+    "left title right"
+    "left chart right"
+    "left events right"
+    "left footer right";
+
+    justify-items: center;
+}
+
+.header {
+    grid-area: header;
+    border-bottom: 1px black solid;
+    width: 100vw;
+    padding-left: 30px;
+    display: flex;
+    align-items: center;
+
+    /* border: 1px orange solid; */
+}
+
+
+.title {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows:  auto auto auto;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+            "title-top"
+    "title-main"
+    "title-sub";
+    grid-area: title;
+
+    width: 80vw;
+    max-width: 1120px;
+
+    text-align: center;
+
+    align-items: center;
+    align-content: center;
+
+    /*border: 1px red solid;*/
+}
+
+.title-top {
+    grid-area: title-top;
+    color: #afafaf;
+    font-family: "Courier", monospace;
+}
+
+.title-main {
+    grid-area: title-main;
+    font-size: 40px;
+    padding: 20px;
+    font-weight: 600;
+}
+
+.title-sub {
+    grid-area: title-sub;
+    color: #6c6c6c;
+    font-size: 18px;
+     /*border: 1px #1ddc3e solid;*/
+
+    line-height: 1.5; /* Adjust the value for your desired line spacing */
+    letter-spacing: 2px; /* Adjust the value for your desired character spacing */
+}
+.chart {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10px auto;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    "chart-title"
+    "chart-main";
+    grid-area: chart;
+
+    width: 80vw;
+
+    max-width: 1120px;
+    /*border: 1px red solid;*/
+
+}
+
+.chart-title {
+    grid-area: chart-title;
+    /* border: 1px #ffa600 solid; */
+}
+
+.chart-main {
+    grid-area: chart-main;
+    /* border: 1px #00ff48 solid; */
+
+}
+
+.events {
+    grid-area: events;
+    /* border: 1px #ffc400 solid; */
+
+    width: 80vw;
+    max-width: 1120px;
+}
+
+.left {
+    grid-area: left;
+     /*border: 1px #7b00ff solid;*/
+}
+
+.right {
+    grid-area: right;
+    /* border: 1px #2fff00 solid; */
+}
+
+.footer {
+    grid-area: footer;
+    /* border: 1px #21b6b6 solid; */
+
+    width: 80vw;
+    max-width: 1120px;
+}
+
+.timeframe-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.timeframe-controls label {
+    cursor: pointer;
+}
+
+
+/* Media Query for devices with max width of 600px */
+@media (max-width: 600px) {
+    .container {
+        grid-template-columns: 100%;
+        grid-template-rows: 50px 300px auto auto 100px;
+        grid-template-areas:
+            "header"
+            "title"
+            "chart"
+            "events"
+            "footer";
+    }
+
+    .chart {
+        width: 100vw;
+    }
+
+    .left, .right {
+        display: none; /* This hides the left and right areas */
+    }
+}
