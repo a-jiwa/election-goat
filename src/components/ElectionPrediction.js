@@ -2,21 +2,74 @@ import React from 'react';
 
 const ElectionPrediction = () => {
     const data = [
-        { party: "Conservative", seats: 365, gains: 75, losses: 9, net: "+66", voteShare: "43.6%", change: "+1.2%", totalVotes: "13,966,565", className: "Conservative" },
-        { party: "Labour", seats: 203, gains: 13, losses: 55, net: "-42", voteShare: "32.2%", change: "-7.8%", totalVotes: "10,295,607", className: "Labour" },
-        { party: "Scottish National Party", seats: 48, gains: 14, losses: 1, net: "+13", voteShare: "3.9%", change: "+0.8%", totalVotes: "1,242,372", className: "ScottishNationalParty" },
-        { party: "Liberal Democrat", seats: 11, gains: 3, losses: 13, net: "-10", voteShare: "11.6%", change: "+4.2%", totalVotes: "3,696,423", className: "LiberalDemocrat" },
-        { party: "Democratic Unionist Party", seats: 8, gains: 0, losses: 2, net: "-2", voteShare: "0.8%", change: "-0.1%", totalVotes: "244,128", className: "DemocraticUnionistParty" },
-        { party: "Sinn Féin", seats: 7, gains: 1, losses: 1, net: "+0", voteShare: "0.6%", change: "-0.2%", totalVotes: "181,853", className: "SinnFein" },
-        { party: "Plaid Cymru", seats: 4, gains: 0, losses: 0, net: "+0", voteShare: "0.5%", change: "+0%", totalVotes: "153,265", className: "PlaidCymru" },
-        { party: "Social Democratic and Labour Party", seats: 2, gains: 2, losses: 0, net: "+2", voteShare: "0.4%", change: "+0.1%", totalVotes: "118,737", className: "SDLP" },
-        { party: "Green", seats: 1, gains: 0, losses: 0, net: "+0", voteShare: "2.7%", change: "+1.1%", totalVotes: "865,697", className: "Green" },
-        { party: "Alliance", seats: 1, gains: 1, losses: 0, net: "+1", voteShare: "0.4%", change: "+0.2%", totalVotes: "134,115", className: "Alliance" },
-        { party: "Brexit", seats: 0, gains: 0, losses: 0, net: "+0", voteShare: "2%", change: "+2%", totalVotes: "642,303", className: "Brexit" },
-        { party: "Ind", seats: 0, gains: 0, losses: 23, net: "-23", voteShare: "0.6%", change: "+0.2%", totalVotes: "196,843", className: "Ind" },
-        { party: "Change", seats: 0, gains: 0, losses: 5, net: "-5", voteShare: "0%", change: "+0%", totalVotes: "10,006", className: "Change" },
-        { party: "Other", seats: 0, gains: 0, losses: 0, net: "+0", voteShare: "0.8%", change: "-1.6%", totalVotes: "264,002", className: "Other" },
+        {
+            party: "Labour",
+            seats: 355, // assumed based on significant lead in polls
+            gains: 152, // assumed, due to the substantial increase in vote share
+            losses: 0,
+            net: "+152",
+            voteShare: "44%", // from polling
+            change: "+11.8%", // change calculated based on difference from current data
+            totalVotes: "14,089,814", // assumed, this would need proper calculation based on total votes cast
+            className: "Labour"
+        },
+        {
+            party: "Conservative",
+            seats: 210, // assumed, significant loss due to lower polling
+            gains: 0,
+            losses: 155, // assumed, due to the substantial decrease in vote share
+            net: "-155",
+            voteShare: "26%", // from polling
+            change: "-17.6%", // change calculated based on difference from current data
+            totalVotes: "8,328,572", // assumed, this would need proper calculation based on total votes cast
+            className: "Conservative"
+        },
+        {
+            party: "Liberal Dems",
+            seats: 25, // assumed, small gain due to increase in vote share
+            gains: 14,
+            losses: 0,
+            net: "+14",
+            voteShare: "13%", // from polling
+            change: "+1.4%", // change calculated based on difference from current data
+            totalVotes: "4,164,286", // assumed, this would need proper calculation based on total votes cast
+            className: "LiberalDemocrat"
+        },
+        {
+            party: "Green",
+            seats: 5, // assumed, small gain due to increase in vote share
+            gains: 4,
+            losses: 0,
+            net: "+4",
+            voteShare: "4%", // from polling
+            change: "+1.3%", // change calculated based on difference from current data
+            totalVotes: "1,280,653", // assumed, this would need proper calculation based on total votes cast
+            className: "Green"
+        },
+        {
+            party: "SNPs",
+            seats: 50, // assumed, small gain, vote share not directly comparable due to different base (GB vs Scotland)
+            gains: 2,
+            losses: 0,
+            net: "+2",
+            voteShare: "2%", // from polling, but this is GB-wide, not Scotland specific
+            change: "-1.9%", // change calculated based on difference from current data
+            totalVotes: "640,326", // assumed, this would need proper calculation based on total votes cast
+            className: "ScottishNationalParty"
+        },
+        // Other parties like Reform not included, can be added similarly
     ];
+
+
+    const partyColors = {
+        Conservative: '#0087DC', // blue
+        Labour: '#DC241f', // red
+        ScottishNationalParty: '#FFF95D', // yellow
+        LiberalDemocrat: '#FDBB30', // orange
+        Green: '#6AB023', // green
+        // Add more parties and their respective colors here
+    };
+
 
     const generateTitle = () => {
         // Sort the data based on seats
@@ -44,9 +97,9 @@ const ElectionPrediction = () => {
 
     return (
         <div className="prediction">
-            <h2>If the election was called today we predict:</h2>
-            <h3>{generateTitle()}</h3> {/* This line displays the generated title */}
-            <table>
+            <h2>Election Prediction</h2> {/* Changed the title */}
+            <h3>{generateTitle()}</h3> {/* Subtitle showing the generated title */}
+            <table className="prediction-table" >
                 <thead>
                 <tr>
                     <th>Party</th>
@@ -61,8 +114,21 @@ const ElectionPrediction = () => {
                 </thead>
                 <tbody>
                 {data.map((row, index) => (
-                    <tr key={index} className={row.className}>
-                        <td>{row.party}</td>
+                    <tr key={index}>
+                        <td style={{ position: 'relative', paddingLeft: '25px' }}> {/* Adjusted padding to make space for the color square */}
+                            <div
+                                style={{
+                                    position: 'absolute',
+                                    left: 0,
+                                    top: '50%',
+                                    width: '15px',
+                                    height: '15px',
+                                    backgroundColor: partyColors[row.className],
+                                    transform: 'translateY(-50%)',
+                                }}
+                            />
+                            {row.party}
+                        </td>
                         <td>{row.seats}</td>
                         <td>{row.gains}</td>
                         <td>{row.losses}</td>
