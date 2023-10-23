@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.b0c38be5.css",
-    "main.js": "/static/js/main.666dcd33.js",
-    "index.html": "/index.html",
-    "main.b0c38be5.css.map": "/static/css/main.b0c38be5.css.map",
-    "main.666dcd33.js.map": "/static/js/main.666dcd33.js.map"
+    "main.css": "/election-goat/static/css/main.b0c38be5.css",
+    "main.js": "/election-goat/static/js/main.666dcd33.js",
+    "index.html": "/election-goat/index.html",
+    "main.b0c38be5.css.map": "/election-goat/static/css/main.b0c38be5.css.map",
+    "main.666dcd33.js.map": "/election-goat/static/js/main.666dcd33.js.map"
   },
   "entrypoints": [
     "static/css/main.b0c38be5.css",
