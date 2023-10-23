@@ -6,6 +6,7 @@ import Title from './components/Title';
 import Headline from './components/Headline';
 import Chart from './components/Chart';
 import Events from './components/Events';
+import ElectionPrediction from './components/ElectionPrediction';
 import Right from './components/Right';
 import Footer from './components/Footer';
 
@@ -18,6 +19,7 @@ function App() {
             <Headline />
             <Chart />
             <Events />
+            <ElectionPrediction />
             <Right />
             <Footer />
         </div>
