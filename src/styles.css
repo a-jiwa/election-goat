@@ -92,6 +92,7 @@ body {
 
 .prediction {
     grid-area: prediction;
+    /*border: 1px red solid;*/
     width: 100%;
     max-width: 1200px;
     margin: 20px auto;
