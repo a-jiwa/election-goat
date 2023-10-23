@@ -3,6 +3,7 @@ import './styles.css';
 import Header from './components/Header';
 import Left from './components/Left';
 import Title from './components/Title';
+import Headline from './components/Headline';
 import Chart from './components/Chart';
 import Events from './components/Events';
 import Right from './components/Right';
@@ -14,6 +15,7 @@ function App() {
             <Header />
             <Left />
             <Title />
+            <Headline />
             <Chart />
             <Events />
             <Right />
