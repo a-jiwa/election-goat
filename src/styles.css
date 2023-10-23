@@ -7,7 +7,7 @@ body {
 .container {
     display: grid;
     grid-template-columns: 10vw 80vw 10vw;
-    grid-template-rows: 50px 250px auto auto auto 100px;
+    grid-template-rows: 50px 250px 700px auto auto 100px;
     gap: 0px 0px;
     grid-auto-flow: row;
     grid-template-areas:
@@ -208,7 +208,6 @@ body {
 .events {
     grid-area: events;
     /* border: 1px #ffc400 solid; */
-
     width: 80vw;
     max-width: 1120px;
 }

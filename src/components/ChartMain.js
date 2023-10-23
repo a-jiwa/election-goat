@@ -299,7 +299,7 @@ function ChartMain() {
             .catch(error => console.error("Error fetching poll data:", error));
 
         // Fetch events data
-        fetch('https://a-jiwa.github.io/uk-poll-data/events.json')
+        fetch('https://a-jiwa.github.io/.')
             .then(response => response.json())
             .then(data => setFetchedEvents(data))
             .catch(error => console.error("Error fetching events data:", error));
