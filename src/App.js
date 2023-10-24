@@ -3,7 +3,6 @@ import './styles.css';
 import Header from './components/Header';
 import Left from './components/Left';
 import Title from './components/Title';
-import Headline from './components/Headline';
 import Chart from './components/Chart';
 import Events from './components/Events';
 import ElectionPrediction from './components/ElectionPrediction';

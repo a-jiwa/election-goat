@@ -97,8 +97,8 @@ const ElectionPrediction = () => {
 
     return (
         <div className="prediction">
-            <h2>Election Prediction</h2> {/* Changed the title */}
-            <h3>{generateTitle()}</h3> {/* Subtitle showing the generated title */}
+            <h3>If there was an election tomorrow:</h3> {/* Changed the title */}
+            <h2>{generateTitle()}</h2> {/* Subtitle showing the generated title */}
             <table className="prediction-table" >
                 <thead>
                 <tr>
