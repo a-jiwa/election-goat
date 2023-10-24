@@ -52,7 +52,7 @@ const PollGraph = ({ data, events, svgWidth }) => {
                 d3.min(data, party => d3.min(party.Values, d => new Date(d.Date))),
                 d3.max(data, party => d3.max(party.Values, d => new Date(d.Date)))
             ])
-            .range([svgWidth * 0.05, svgWidth * 0.99]);  // Adjust percentages based on your design
+            .range([svgWidth * 0.05, svgWidth * 0.95]);  // Adjust percentages based on your design
 
         const yScale = d3
             .scaleLinear()
@@ -65,13 +65,8 @@ const PollGraph = ({ data, events, svgWidth }) => {
 
 
         const yAxis = d3.axisLeft(yScale)
-            .tickSize(-1050)  // This is the negative width of the main charting area
+            .tickSize(-svgWidth * 0.9)  // This is the negative width of the main charting area
             .tickFormat(d => `${(d * 100).toFixed(0)}%`);
-
-        svg.selectAll(".tick line")
-            .attr("stroke", "lightgray")
-            .attr("stroke-opacity", 0.5)
-            .attr("shape-rendering", "crispEdges");
 
         const isSmallScreen = svgWidth < 800;
         const fontSizeForTick = isSmallScreen ? "10px" : "14px";
@@ -97,6 +92,13 @@ const PollGraph = ({ data, events, svgWidth }) => {
             .attr("dx", isSmallScreen ? "-2.5em" : "-0.5em")
             .style("font-family", "'Courier', monospace"); // Set font to Courier
 
+
+        svg.selectAll(".tick line")
+            .attr("stroke", "#b2b2b2")
+            .attr("fill", "#fff")
+            .attr("stroke-opacity", 0.5)
+            .attr("shape-rendering", "crispEdges")
+            .attr("stroke-dasharray", "2,2");
 
         // Draw weekly average lines for each party
         const line = d3
@@ -161,7 +163,7 @@ const PollGraph = ({ data, events, svgWidth }) => {
             });
 
             const mouseX = d3.pointer(event, this)[0];
-            if (mouseX > 50 && mouseX < (svgWidth * 0.99)) {
+            if (mouseX > 50 && mouseX < (svgWidth * 0.95)) {
                 svg.style("cursor", "crosshair");  // Set the cursor to cross
                 d3.select(".mouse-line")
                     .attr("d", () => {
