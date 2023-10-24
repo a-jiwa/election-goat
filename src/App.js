@@ -16,7 +16,6 @@ function App() {
             <Header />
             <Left />
             <Title />
-            <Headline />
             <Chart />
             <Events />
             <ElectionPrediction />

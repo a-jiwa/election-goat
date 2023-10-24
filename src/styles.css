@@ -99,57 +99,6 @@ body {
     border-radius: 5px;
 }
 
-.prediction {
-    grid-area: prediction;
-    /*border: 1px red solid;*/
-    width: 100%;
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px;
-}
-
-.prediction h3 {
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.prediction h2 {
-    color: #666;
-    margin-bottom: 20px;
-    font-weight: normal;
-}
-.prediction table {
-    width: 90%; /* specifies the width of the table */
-    margin-left: auto; /* centers the table horizontally */
-    margin-right: auto; /* centers the table horizontally */
-    border-collapse: collapse; /* collapses border for a cleaner look */
-}
-
-.prediction th, .prediction td {
-    padding: 12px 0px;
-    /*border: 1px solid #e0e0e0;*/
-    text-align: left;
-    font-size: 12px;
-    border-bottom: 1px dashed #dcdcdc; /* Dotted border for bottom of each table cell */
-}
-
-.prediction tr:last-child td {
-    border-bottom: none;
-}
-
-.prediction td:not(:first-child) {
-    text-align: right; /* Aligning text to the right in all columns except the first */
-}
-
-.prediction th:not(:first-child) {
-    text-align: right;
-}
-
-.prediction th {
-    /*background-color: #f5f5f5;*/
-    font-weight: 600;
-}
-
 .party-container {
     display: flex;
     flex-direction: column;
@@ -191,13 +140,9 @@ body {
     grid-area: headline;
     display: flex;
     padding-top: 10px;
-    /*border: 1px red solid;*/
-    /*width: 100%;*/
     min-height: 30px;
-    justify-content: center;
-    /*align-content: center;*/
+    justify-content: space-evenly;
     align-items: center;
-    gap: 150px;
 }
 .chart-main {
     grid-area: chart-main;
@@ -210,6 +155,58 @@ body {
     /* border: 1px #ffc400 solid; */
     width: 80vw;
     max-width: 1120px;
+}
+
+
+.prediction {
+    grid-area: prediction;
+    /*border: 1px red solid;*/
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    /*padding: 20px;*/
+}
+
+.prediction h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.prediction h2 {
+    color: #666;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+.prediction table {
+    width: 100%; /* specifies the width of the table */
+    /*margin-left: auto; !* centers the table horizontally *!*/
+    /*margin-right: auto; !* centers the table horizontally *!*/
+    border-collapse: collapse; /* collapses border for a cleaner look */
+}
+
+.prediction th, .prediction td {
+    padding: 12px 0px;
+    /*border: 1px solid #e0e0e0;*/
+    text-align: left;
+    font-size: 12px;
+    border-bottom: 1px dashed #dcdcdc; /* Dotted border for bottom of each table cell */
+}
+
+.prediction tr:last-child td {
+    border-bottom: none;
+}
+
+.prediction td:not(:first-child) {
+    text-align: right; /* Aligning text to the right in all columns except the first */
+}
+
+.prediction th:not(:first-child) {
+    text-align: right;
+}
+
+.prediction th {
+    /*background-color: #f5f5f5;*/
+    font-weight: 600;
 }
 
 .left {
@@ -246,17 +243,23 @@ body {
 @media (max-width: 600px) {
     .container {
         grid-template-columns: 100%;
-        grid-template-rows: 50px 300px auto auto 100px;
+        grid-template-rows: 50px 250px 700px auto auto 100px;
+        /*grid-template-rows: 50px 300px auto auto 100px;*/
         grid-template-areas:
             "header"
             "title"
             "chart"
             "events"
+            "prediction"
             "footer";
     }
 
     .chart {
         width: 100vw;
+    }
+
+    .prediction {
+        width: 90%;
     }
 
     .left, .right {
