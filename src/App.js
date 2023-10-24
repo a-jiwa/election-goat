@@ -6,6 +6,7 @@ import Title from './components/Title';
 import Chart from './components/Chart';
 import Events from './components/Events';
 import ElectionPrediction from './components/ElectionPrediction';
+import HistoricalGrid from './components/HistoricalGrid';
 import Right from './components/Right';
 import Footer from './components/Footer';
 
@@ -18,6 +19,7 @@ function App() {
             <Chart />
             <Events />
             <ElectionPrediction />
+            <HistoricalGrid />
             <Right />
             <Footer />
         </div>

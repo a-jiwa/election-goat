@@ -97,7 +97,7 @@ const ElectionPrediction = () => {
 
     return (
         <div className="prediction">
-            <h3>If there was an election tomorrow:</h3> {/* Changed the title */}
+            <h3>Our Forecast</h3> {/* Changed the title */}
             <h2>{generateTitle()}</h2> {/* Subtitle showing the generated title */}
             <table className="prediction-table" >
                 <thead>
@@ -115,7 +115,7 @@ const ElectionPrediction = () => {
                 <tbody>
                 {data.map((row, index) => (
                     <tr key={index}>
-                        <td style={{ position: 'relative', paddingLeft: '25px' }}> {/* Adjusted padding to make space for the color square */}
+                        <td style={{ position: 'relative', paddingLeft: '25px' }}>
                             <div
                                 style={{
                                     position: 'absolute',
