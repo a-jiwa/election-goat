@@ -21,9 +21,11 @@ body {
 
     justify-items: center;
     padding-top: 50px;
+
 }
 
 .header {
+    font-weight: bold;
     position: fixed;
     top: 0;
     left: 0;
@@ -148,7 +150,6 @@ body {
 .chart-main {
     grid-area: chart-main;
     /* border: 1px #00ff48 solid; */
-
 }
 
 .events {
@@ -286,10 +287,10 @@ h3 {
 }
 
 /* Media Query for devices with max width of 600px */
-@media (max-width: 600px) {
+@media (max-width: 1000px) {
     .container {
         grid-template-columns: 100%;
-        grid-template-rows: 50px 250px 700px auto auto 100px;
+        grid-template-rows: 300px auto auto auto auto auto 100px;
         /*grid-template-rows: 50px 300px auto auto 100px;*/
         grid-template-areas:
             "header"
@@ -301,12 +302,105 @@ h3 {
             "footer";
     }
 
-    .chart {
-        width: 100vw;
+    .header {
+        height: 130px;
+        font-size: 40px;
+        padding-left: 50px;
     }
 
+    .goat-emoji {
+        margin-right: 30px;
+        font-size: 60px;
+        position: absolute;
+        right: 80px;
+    }
+
+    .title {
+        width: 80vw;
+    }
+
+    .title-main {
+        font-size: 90px;
+    }
+
+    .chart {
+        padding-top: 30px;
+        width: 100vw;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        gap: 0px 0px;
+        grid-auto-flow: row;
+        grid-template-areas:
+    "chart-title"
+    "headline"
+    "chart-main";
+        grid-area: chart;
+        align-items: center;
+        justify-items: center;
+        /*border: 1px red solid;*/
+
+    }
+
+    .chart-title {
+        width: 100vw;
+        font-size: 30px;
+        grid-area: chart-title;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding-top: 100px;
+        /*border: 1px #ffa600 solid;*/
+    }
+
+    .headline {
+        width: 100vw;
+        font-size: 35px;
+        grid-area: headline;
+        padding-top: 10px;
+        min-height: 30px;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .party-box {
+        padding: 10px;
+        width: auto;
+    }
+
+    .chart-main {
+        grid-area: chart-main;
+        /* border: 1px #00ff48 solid; */
+
+    }
     .prediction {
-        width: 90%;
+        width: 98%;
+    }
+
+
+    .prediction h3 {
+        margin-top: 40px;
+        margin-bottom: 10px;
+    }
+
+    .prediction h2 {
+        color: #ed36fc;
+        font-weight: bold;
+        padding-bottom: 50px;
+    }
+
+    .prediction th {
+        padding: 12px 5px;
+        font-size: 25px;
+    }
+
+    .prediction td {
+        padding: 50px 5px;
+        font-size: 30px;
+    }
+
+    .prediction th {
+        /*background-color: #f5f5f5;*/
+        font-weight: 600;
     }
 
     .historical-section {
