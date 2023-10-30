@@ -18,6 +18,11 @@ function MultiLineChart({ data }) {
         { date: '2019-06-08', label: 'May Resigns' },
     ];
 
+    const leadershipChanges = [
+        // { party: 'Con', date: '1990-11-01', label: 'Thatcher Resigns' },
+        // Add other changes as needed...
+    ];
+
     const colorMap = {
         'Con': '#0087DC',  // Conservative Party blue
         'Lab': '#E4003B',  // Labour Party red
@@ -112,17 +117,53 @@ function MultiLineChart({ data }) {
 
             // Animation from left to right
             const totalLength = path.node().getTotalLength();
-            const baseDelay = 100;  // You can adjust this value
+            const baseDelay = 150;  // You can adjust this value
             path
                 .attr("stroke-dasharray", totalLength + " " + totalLength)
                 .attr("stroke-dashoffset", totalLength)
                 .transition()
-                .duration(1500)
+                .duration(1700)
                 .delay(index * baseDelay)  // <-- Add this delay
                 .attr("stroke-dashoffset", 0)
                 .on('end', () => {
                     addCirclesAndText(content, data, xScale, yScale, colorMap, key, mapKeyToParty);
                 });
+
+
+            leadershipChanges.forEach(change => {
+                console.log('leadershipChanges')
+                // Check if this change is relevant for the current key (party)
+                if (change.party === mapKeyToParty(key)) {
+                    console.log(key)
+                    // Find the y value of the data at the change date
+                    const changeData = data.find(d => d.Date === change.date);
+                    console.log(changeData)
+                    if (changeData) {
+                        const circleX = xScale(new Date(change.date));
+                        const circleY = yScale(changeData[key]);
+
+                        console.log(changeData, circleX, circleY)
+
+                        // Draw the circle on the party line
+                        content.append("circle")
+                            .attr("class", "leader-change-circle")  // Add this line
+                            .attr("cx", circleX)
+                            .attr("cy", circleY)
+                            .attr("r", 6)
+                            .attr("fill", colorMap[party])
+                            .style("opacity", 1);  // Semi-transparent circle
+
+                        // Add the label below the circle
+                        content.append("text")
+                            .attr("class", "leader-change-label")  // Add this line
+                            .attr("x", circleX + 5)
+                            .attr("y", circleY + 15)  // position it slightly below the circle
+                            .attr("fill", colorMap[party])
+                            .attr("text-anchor", "start")  // center the text
+                            .text(change.label);
+                    }
+                }
+            });
 
             const lastDataPoint = data[data.length - 1]; // get the last data point
             content.append("circle")
@@ -179,7 +220,7 @@ function MultiLineChart({ data }) {
                 .style("opacity", 0);
 
             circle.transition()
-                .duration(300)  // Animation duration for circle appearance
+                .duration(200)  // Animation duration for circle appearance
                 .style("opacity", 1);
 
             const textLabel = content.append("text")
@@ -193,9 +234,11 @@ function MultiLineChart({ data }) {
                 .style("opacity", 0);
 
             textLabel.transition()
-                .duration(800)  // Animation duration for text appearance
+                .duration(500)  // Animation duration for text appearance
                 .style("opacity", 1);
         }
+
+
     }, [data]);
 
     useEffect(() => {
