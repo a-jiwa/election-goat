@@ -16,7 +16,7 @@ body {
     "left chart right"
     "left events right"
     "left prediction right"
-    "left historical-section right"
+    "left historical-container right"
     "left footer right";
 
     justify-items: center;
@@ -277,6 +277,98 @@ body {
 
 h3 {
     font-weight: normal;
+}
+
+/* history */
+.year-button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #f2f2f2;
+    transition: background-color 0.3s;
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.year-button:hover {
+    background-color: #e0e0e0;
+}
+
+.year-button.active {
+    background-color: #c0c0c0;
+}
+
+.historical-container {
+    grid-area: historical-container;
+    width: 100%;
+    height: 600px;
+    padding-top: 150px;
+    /*border: 1px solid #ccc;*/
+}
+
+.year-buttons-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.election-intro {
+    color: #414141;
+    font-size: 20px;
+    font-weight: 30;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px; /* A bit of letter-spacing for aesthetics */
+}
+
+.election-year-heading {
+    /*font-size: 28px;*/
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 60px;
+}
+
+.election-year-heading .conservatives,
+.election-year-heading .labour {
+    padding: 2px 5px;
+    color: white;
+    font-weight: 600;
+}
+
+.election-year-heading .conservatives {
+    background-color: #0087DC;
+}
+
+.election-year-heading .labour {
+    background-color: #E4003B;
+}
+
+.election-description {
+    /*text-align: center;*/
+    margin: 25px 0; /* Adding space above and below the text */
+    font-size: 22px; /* Making the font a bit larger */
+    line-height: 1.6; /* Increased line-height for better readability */
+    letter-spacing: 0.5px; /* A bit of letter-spacing for aesthetics */
+    max-width: 1200px; /* Limit the width for better readability */
+    /*margin-left: auto; !* These two lines will center the text block if it's shorter than max-width *!*/
+    /*margin-right: auto;*/
+}
+
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.y-axis path,
+.y-axis line {
+}
+
+.y-axis text {
+    fill: #333; /* Color of the axis text */
+    font-size: 16px; /* Font size of the axis text */
+    font-family: 'Arial', sans-serif; /* Font family of the axis text */
 }
 
 /* Media Query for devices with max width of 900px */
