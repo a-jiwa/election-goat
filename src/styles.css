@@ -302,8 +302,10 @@ h3 {
 .historical-container {
     grid-area: historical-container;
     width: 100%;
-    height: 600px;
+    height: auto;
     padding-top: 150px;
+    justify-content: center;
+    align-items: center;
     /*border: 1px solid #ccc;*/
 }
 
@@ -360,7 +362,11 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    margin-left: auto; /* These two lines will center the text block if it's shorter than max-width */
+    margin-right: auto;
+    height: 500px;
+    max-width: 1000px; /* Limit the width for better readability */
+    border: 1px solid #efefef;
 }
 
 .y-axis path,
@@ -371,6 +377,23 @@ h3 {
     fill: #333; /* Color of the axis text */
     font-size: 16px; /* Font size of the axis text */
     font-family: 'Arial', sans-serif; /* Font family of the axis text */
+}
+
+.data-label {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.leader-change-label {
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.date-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333333;
 }
 
 /* Media Query for devices with max width of 900px */
