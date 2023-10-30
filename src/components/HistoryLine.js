@@ -29,7 +29,7 @@ function MultiLineChart({ data }) {
         const width = chartRef.current.clientWidth;
         const height = chartRef.current.clientHeight;
 
-        const margin = { top: 10, right: 30, bottom: 30, left: 60 };
+        const margin = { top: 50, right: 20, bottom: 50, left: 50 };
         const graphWidth = width - margin.left - margin.right;
         const graphHeight = height - margin.top - margin.bottom;
 
@@ -64,21 +64,26 @@ function MultiLineChart({ data }) {
         // Draw X & Y axes
         content.append("g")
             .attr("transform", `translate(0,${graphHeight})`)
-            .call(d3.axisBottom(xScale));
+            .call(
+                d3.axisBottom(xScale)
+                    .tickFormat(d3.timeFormat("%b")) // Format as abbreviated month names
+                    .tickSize(10) // Adjust the size of the ticks
+            )
+            .selectAll("text")
+            .style("font-size", "14px"); // Set font size for tick labels
 
         content.append("g")
             .call(d3.axisLeft(yScale).tickValues([0, maxYValue]))
             .attr("class", "y-axis"); // Added class for styling
 
-
-// Draw the line
+        // Draw the line
         keys.forEach(key => {
             const party = mapKeyToParty(key);
             const path = content.append("path")
                 .datum(data)
                 .attr("fill", "none")
                 .attr("stroke", colorMap[party])
-                .attr("stroke-width", 5) // Adjust for desired thickness
+                .attr("stroke-width", 8) // Adjust for desired thickness
                 .attr("d", d3.line()
                     .curve(d3.curveBasis) // This makes the line smoother
                     .x(d => xScale(new Date(d.Date)))
@@ -94,9 +99,6 @@ function MultiLineChart({ data }) {
                 .duration(2000) // You can adjust this for faster/slower animation
                 .attr("stroke-dashoffset", 0);
         });
-
-
-
     }, [data]);
 
     useEffect(() => {

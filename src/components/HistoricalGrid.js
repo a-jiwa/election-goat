@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import YearButton from './YearButton';
 import MultiLineChart from './HistoryLine';
 
-const YEARS = [2019, 2017, 2015, 2010, 2005, 2001, 1997, 1992, 1897];
+const YEARS = [2019, 2017, 2015, 2010, 2005, 2001, 1997, 1992, 1987];
 
 const ELECTION_DATA = {
     2019: {
@@ -64,7 +64,7 @@ function MainComponent() {
 
     return (
         <div className="historical-container">
-            <h3 className="election-intro">Look at the lead up to previous elections</h3>
+            <h3 className="election-intro">The lead up to previous elections</h3>
             <h1 className="election-year-heading">
                 How was{' '}
                 <span className={ELECTION_DATA[activeYear].party + ' highlighted-year'}>

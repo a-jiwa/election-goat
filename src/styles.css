@@ -311,6 +311,7 @@ h3 {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
+    width: 100%;
 }
 
 .election-intro {
@@ -352,6 +353,7 @@ h3 {
     max-width: 1200px; /* Limit the width for better readability */
     /*margin-left: auto; !* These two lines will center the text block if it's shorter than max-width *!*/
     /*margin-right: auto;*/
+    min-height: 250px;
 }
 
 .chart-container {
@@ -390,7 +392,7 @@ h3 {
             "chart"
             "events"
             "prediction"
-            "historical-section"
+            "historical-container"
             "footer";
     }
 
@@ -495,11 +497,24 @@ h3 {
         font-weight: 600;
     }
 
-    .historical-section {
-        width: 90%;
+    .historical-container {
+        width: 95%;
     }
-    .historical-grid {
-        grid-template-columns: repeat(1, 1fr);
+
+    .chart-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 95%;
+        width: 95%;
+    }
+
+    .year-buttons-container {
+        flex-wrap: wrap;
+    }
+
+    .year-button {
+        margin: 5px;
     }
 
     .left, .right {
