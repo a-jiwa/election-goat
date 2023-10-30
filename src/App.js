@@ -21,7 +21,7 @@ function App() {
             <ElectionPrediction />
             <HistoricalGrid />
             <Right />
-            <Footer />
+            {/*<Footer />*/}
         </div>
     );
 }
